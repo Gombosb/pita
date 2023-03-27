@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+<title>Pitagorasz tétel</title>
+</head>
+    <body>
+        <img src="pita.jpg" alt="pitagorasz háromszög">
+        <div>
+          <h2>C oldal</h2>
+          <input id="a1" type="number" placeholder="a oldal"/>
+          <input id="b1" type="number" placeholder="b oldal"/>
+          <br/>
+          <button onclick="findC()">Oldalak kiszámolása</button>
+          <p id="outputC"></p>
+          
+          <svg width="200" height="200">
+            <polygon id="triangleC"/>
+          </svg>
+          <button id="btn1" onclick="drawSVGC()">Háromszög rajzolása</button>
+         </div>
+
+         <script>
+            function findC(){
+              var a = document.getElementById("a1").value;
+              var b = document.getElementById("b1").value;
+              var c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+              document.getElementById("outputC").innerHTML="A oldal = "+a+ ", B oldal= "+b+ ", C oldal= "+c;
+            }
+            function drawSVGC() {
+                var a = document.getElementById("a1").value;
+                var b = document.getElementById("b1").value;
+                var c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+                if(a<20){
+                   a = a*10;
+                }
+                if(b<20){
+                  b = b*10;
+                }
+                if(c<20){
+                  c = c*10;
+                }   
+                    var x3 = a;
+                var y3 = b;
+                var ox = 45 - (a / 2);
+                var oy = 45 + (y3 / 2);
+                var points = [
+                    [ox, oy].join(','),
+                    [a + ox, oy].join(','),
+                    [ox + x3, oy - y3].join(',')
+                    ].join(' ');
+                document.getElementById('triangleC').setAttribute('points', points);
+            }
+            
+            var myBtn1 = document.getElementById('btn1');
+            myBtn1.addEventListener('click', function(event) {
+                drawSVGC();
+              });
+            
+            function drawSVGB() {
+                var a = document.getElementById("a2").value;
+                var c = document.getElementById("c2").value;
+                var b = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2));
+                if(a<20){
+                   a = a*10;
+                }
+                if(b<20){
+                  b = b*10;
+                }
+                if(c<20){
+                  c = c*10;
+                }   
+                    var x3 = a;
+                var y3 = b;
+                var ox = 45 - (a / 2);
+                var oy = 45 + (y3 / 2);
+                var points = [
+                    [ox, oy].join(','),
+                    [a + ox, oy].join(','),
+                    [ox + x3, oy - y3].join(',')
+                    ].join(' ');
+                document.getElementById('triangleB').setAttribute('points', points);
+            }
+            
+            var myBtn2 = document.getElementById('btn2');
+            myBtn2.addEventListener('click', function(event) {
+                drawSVGB();
+              });
+            
+            function drawSVGA() {
+                var b = document.getElementById("b3").value;
+                var c = document.getElementById("c3").value;
+                var a = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2));
+                if(a<20){
+                   a = a*10;
+                }
+                if(b<20){
+                  b = b*10;
+                }
+                if(c<20){
+                  c = c*10;
+                }   
+                    var x3 = a;
+                var y3 = b;
+                var ox = 45 - (a / 2);
+                var oy = 45 + (y3 / 2);
+                var points = [
+                    [ox, oy].join(','),
+                    [a + ox, oy].join(','),
+                    [ox + x3, oy - y3].join(',')
+                    ].join(' ');
+                document.getElementById('triangleA').setAttribute('points', points);
+            }
+            
+            var myBtn3 = document.getElementById('btn3');
+            myBtn3.addEventListener('click', function(event) {
+                drawSVGA();
+              });
+                </script>
+        </body>
+</html>

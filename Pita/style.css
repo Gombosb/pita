@@ -1,0 +1,19 @@
+body {
+    background-color:#f0f0f0;
+    font-family:verdana,arial,helvetica,sans-serif;
+    font-size:16px;
+ }
+div {
+    width:380px;
+    padding:20px;
+    border:1px solid #999;
+    margin:20px auto;
+    background-color:#fff;
+    box-shadow:10px 10px 20px #666;
+    font-size:100;
+    text-align:center;
+ }
+div {
+    margin:10px 0;
+    float: left;
+ }
